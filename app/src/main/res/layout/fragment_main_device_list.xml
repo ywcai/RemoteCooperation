@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/main_head_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_head"
+                app:layout_collapseMode="pin" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:minHeight="140dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="40dp"
+                app:layout_collapseMode="pin">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Hello : LS !"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_local_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/main_head_dev_id"
+                    android:layout_marginTop="10dp"
+                    android:text="[本地设备]"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_access_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/main_head_dev_id"
+                    android:layout_marginTop="10dp"
+                    android:text="000000"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_dev_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/main_head_user_name"
+                    android:layout_marginTop="10dp"
+                    android:text="------ "
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_dev_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/main_head_dev_name"
+                    android:layout_marginTop="10dp"
+                    android:text="0000000000000"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/main_head_dev_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/main_head_user_name"
+                    android:layout_marginTop="10dp"
+                    android:text="Online"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:minHeight="100dp"-->
+
+            <!--android:src="@drawable/main_head"-->
+            <!--app:layout_collapseMode="pin"-->
+            <!--tools:ignore="ContentDescription" />-->
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/main_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                android:paddingTop="@dimen/toolbar_top"
+                android:titleTextAppearance="@style/TitleSmall"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/LsAppBarOverlay"
+                app:title=""
+                app:titleTextAppearance="@style/TitleSmall" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/main_top_tip"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="0.5"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="20dp"
+        android:text="tip"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/devices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.NestedScrollView>
+
+    <include layout="@layout/control_dialog_pop"></include>
+
+    <ywcai.ls.controls.loader.LoaderView
+        android:clickable="true"
+        android:id="@+id/main_process_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"></ywcai.ls.controls.loader.LoaderView>
+</android.support.design.widget.CoordinatorLayout>
